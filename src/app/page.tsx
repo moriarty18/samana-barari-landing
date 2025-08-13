@@ -30,6 +30,29 @@ export default function Home() {
     seconds: 30
   })
 
+  // Функции для отслеживания событий в Яндекс.Метрике
+  const trackWhatsAppClick = (location: string) => {
+    // @ts-ignore
+    if (typeof ym !== 'undefined') {
+      // @ts-ignore
+      ym(103733977, 'reachGoal', 'whatsapp_click', {
+        location: location
+      });
+    }
+    console.log(`WhatsApp click tracked: ${location}`);
+  };
+
+  const trackInstagramClick = (location: string) => {
+    // @ts-ignore
+    if (typeof ym !== 'undefined') {
+      // @ts-ignore
+      ym(103733977, 'reachGoal', 'instagram_click', {
+        location: location
+      });
+    }
+    console.log(`Instagram click tracked: ${location}`);
+  };
+
   // Countdown timer
   useEffect(() => {
     const timer = setInterval(() => {
@@ -214,6 +237,7 @@ export default function Home() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick('hero_section')}
               className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 transform hover:scale-105"
             >
               <MessageCircle className="w-4 h-4" />
@@ -224,6 +248,7 @@ export default function Home() {
               href={instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackInstagramClick('hero_section')}
               className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300"
             >
               <Instagram className="w-4 h-4" />
@@ -439,6 +464,7 @@ export default function Home() {
                   href={instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackInstagramClick('broker_section')}
                   className="flex items-center gap-2 text-sm text-purple-600"
                 >
                   <Instagram className="w-4 h-4" />
@@ -481,6 +507,7 @@ export default function Home() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick('final_cta')}
             className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 transform hover:scale-105"
           >
             <MessageCircle className="w-5 h-5" />
@@ -502,6 +529,7 @@ export default function Home() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick('footer')}
                 className="text-green-400 hover:text-green-300 transition-colors duration-300"
               >
                 <MessageCircle className="w-6 h-6" />
@@ -510,6 +538,7 @@ export default function Home() {
                 href={instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackInstagramClick('footer')}
                 className="text-purple-400 hover:text-purple-300 transition-colors duration-300"
               >
                 <Instagram className="w-6 h-6" />
@@ -527,6 +556,7 @@ export default function Home() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackWhatsAppClick('fixed_button')}
         className="fixed bottom-20 right-4 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg z-50 transition-all duration-300 transform hover:scale-110"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
