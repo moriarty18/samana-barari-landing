@@ -32,9 +32,9 @@ export default function Home() {
 
   // Функции для отслеживания событий в Яндекс.Метрике
   const trackWhatsAppClick = (location: string) => {
-    // @ts-expect-error
+    // @ts-expect-error - Yandex Metrika global variable
     if (typeof ym !== 'undefined') {
-      // @ts-expect-error
+      // @ts-expect-error - Yandex Metrika reachGoal method
       ym(103733977, 'reachGoal', 'whatsapp_click', {
         location: location
       });
@@ -43,9 +43,9 @@ export default function Home() {
   };
 
   const trackInstagramClick = (location: string) => {
-    // @ts-expect-error
+    // @ts-expect-error - Yandex Metrika global variable
     if (typeof ym !== 'undefined') {
-      // @ts-expect-error
+      // @ts-expect-error - Yandex Metrika reachGoal method
       ym(103733977, 'reachGoal', 'instagram_click', {
         location: location
       });
