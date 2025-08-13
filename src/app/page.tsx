@@ -32,9 +32,9 @@ export default function Home() {
 
   // Функции для отслеживания событий в Яндекс.Метрике
   const trackWhatsAppClick = (location: string) => {
-    // @ts-ignore
+    // @ts-expect-error
     if (typeof ym !== 'undefined') {
-      // @ts-ignore
+      // @ts-expect-error
       ym(103733977, 'reachGoal', 'whatsapp_click', {
         location: location
       });
@@ -43,9 +43,9 @@ export default function Home() {
   };
 
   const trackInstagramClick = (location: string) => {
-    // @ts-ignore
+    // @ts-expect-error
     if (typeof ym !== 'undefined') {
-      // @ts-ignore
+      // @ts-expect-error
       ym(103733977, 'reachGoal', 'instagram_click', {
         location: location
       });
